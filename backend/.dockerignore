@@ -1,0 +1,10 @@
+.venv
+.tmp
+_sandbox
+wheels
+__pycache__
+*.py[cod]
+*.db
+.pytest_cache
+tests
+artifacts

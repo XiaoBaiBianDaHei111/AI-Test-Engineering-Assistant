@@ -1,0 +1,61 @@
+name: real-smoke
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 1"  # weekly Monday 03:00 UTC
+
+jobs:
+  real-integration:
+    name: Real integration (DeepSeek + Playwright)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      DATABASE_URL: sqlite:///./ai_test_workflow.db
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('backend/requirements.txt') }}
+
+      - name: Install Playwright chromium
+        run: python -m playwright install chromium
+
+      - name: Start backend (real DeepSeek + SQLite)
+        run: |
+          nohup uvicorn app.main:app --host 127.0.0.1 --port 8000 > /tmp/backend.log 2>&1 &
+          sleep 5
+
+      # LLM integration: real DeepSeek (marked `real`, key-gated).
+      - name: Run real LLM integration tests
+        run: pytest -m real
+
+      # Full browser + demo API e2e (real Playwright + real DeepSeek).
+      - name: Run e2e smoke (real browser + demo API)
+        env:
+          E2E_BASE_URL: http://127.0.0.1:8000
+        run: pytest -m e2e
+
+      - name: Upload artifacts (diagnostics)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-smoke-artifacts
+          path: |
+            backend/artifacts/
+            /tmp/backend.log
+          if-no-files-found: ignore

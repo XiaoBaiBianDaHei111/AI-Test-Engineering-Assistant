@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务管理系统（Demo）</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>任务管理系统</h1>
+
+      <!-- 登录区 -->
+      <section id="login-section">
+        <h2>登录</h2>
+        <div class="field">
+          <label>用户名</label>
+          <input data-testid="username" type="text" placeholder="用户名" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label>密码</label>
+          <input data-testid="password" type="password" placeholder="密码" autocomplete="off" />
+        </div>
+        <button data-testid="login-btn" type="button">登录</button>
+        <div data-testid="flash" class="flash" role="alert"></div>
+      </section>
+
+      <!-- 任务区 -->
+      <section id="task-section" hidden>
+        <h2>任务列表</h2>
+        <div class="field">
+          <label>任务标题</label>
+          <input data-testid="task-title" type="text" placeholder="任务标题" autocomplete="off" />
+          <button data-testid="add-task-btn" type="button">添加任务</button>
+        </div>
+        <div class="field">
+          <label>状态过滤</label>
+          <select data-testid="task-filter">
+            <option value="all">全部</option>
+            <option value="todo">待办</option>
+            <option value="done">完成</option>
+          </select>
+        </div>
+        <ul data-testid="task-list"></ul>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+*.db
+.venv/
+.pytest_cache/
+.tmp/
+backend/_sandbox/
+backend/wheels/
+backend/tmpenv/
+backend/pytest-run/
+pytest-cache-files*/
+
+# --- Node / frontend ---
+node_modules/
+.npm-cache/
+frontend/dist/
+
+# --- Environment (never commit real secrets) ---
+.env
+*.env.local          # common accidental-secret filename (defensive)
+!.env.example        # template whitelist (prevent a future *.env* rule from hiding it)
+!**/.env.example
+*.log                # logs (defensive)
+.coverage            # coverage report (defensive)
+
+# --- Runtime evidence (keep directory structure via .gitkeep) ---
+backend/artifacts/*
+!backend/artifacts/.gitkeep
+!backend/artifacts/README.md
+
+# --- Third-party reference material (input only, not part of the repo) ---
+reference/
+
+# --- Personal / process documents (kept local, never published) ---
+PlanANDAct/
+README-local.md
+STARTUP-local.md
+docs-local/
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+gate_check*.txt
