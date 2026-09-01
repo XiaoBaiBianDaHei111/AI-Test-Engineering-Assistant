@@ -83,7 +83,7 @@ def test_list_runs_exposes_counts_and_cases(monkeypatch, session_factory, sample
             break
         time.sleep(0.05)
 
-    runs = client.get(f"/api/runs", params={"project_id": sample_project["id"]}).json()
+    runs = client.get("/api/runs", params={"project_id": sample_project["id"]}).json()
     assert len(runs) == 1
     assert runs[0]["id"] == run_id
     assert runs[0]["total_count"] == 1

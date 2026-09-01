@@ -1,24 +1,24 @@
 """FailureAnalysis request/response schemas + enums (Phase 7)."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field
 
 
-class FailureCategory(str, Enum):
+class FailureCategory(StrEnum):
     broken_locator = "BROKEN_LOCATOR"
     real_bug = "REAL_BUG"
     flaky = "FLAKY"
     env_issue = "ENV_ISSUE"
 
 
-class DecisionSource(str, Enum):
+class DecisionSource(StrEnum):
     rule = "rule"
     llm = "llm"
 
 
-class AnalysisStatus(str, Enum):
+class AnalysisStatus(StrEnum):
     pending = "pending"
     classified = "classified"
     confirmed = "confirmed"

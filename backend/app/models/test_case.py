@@ -4,6 +4,8 @@ Steps are stored in the ``TestCaseStep`` child table (not a JSON blob) per
 MAJOR-003, so execution results can be recorded step-by-step in later phases.
 """
 
+from typing import TYPE_CHECKING
+
 from sqlalchemy import (
     JSON,
     ForeignKey,
@@ -16,6 +18,9 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
 from app.models.base import TimestampMixin
+
+if TYPE_CHECKING:
+    from app.models.test_case_review import TestCaseReview
 
 # TestCase priority levels (P0 = most critical).
 TEST_CASE_PRIORITIES = ("P0", "P1", "P2", "P3")

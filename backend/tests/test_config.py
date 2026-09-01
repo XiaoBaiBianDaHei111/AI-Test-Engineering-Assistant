@@ -1,6 +1,6 @@
 """Configuration tests (P2-002, P012 Docker-layout). Real mode (P013)."""
 
-from app.core.config import Settings, _REPO_ROOT, _resolve_env_file
+from app.core.config import _REPO_ROOT, Settings, _resolve_env_file
 
 
 def test_llm_defaults():

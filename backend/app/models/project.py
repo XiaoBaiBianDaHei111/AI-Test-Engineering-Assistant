@@ -1,10 +1,18 @@
 """Project — top-level isolation unit for test assets."""
 
+from typing import TYPE_CHECKING
+
 from sqlalchemy import String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
 from app.models.base import TimestampMixin
+
+if TYPE_CHECKING:
+    from app.models.generation_run import GenerationRun
+    from app.models.requirement import Requirement
+    from app.models.test_case import TestCase
+    from app.models.test_run import TestRun
 
 
 class Project(Base, TimestampMixin):

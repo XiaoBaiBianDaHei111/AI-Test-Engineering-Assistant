@@ -1,6 +1,5 @@
 """runs API extension tests (P9-008, AC-9-05)."""
 
-import json
 import time
 
 import httpx

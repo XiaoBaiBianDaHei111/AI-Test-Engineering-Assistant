@@ -1,13 +1,13 @@
 """APITestCase request/response schemas + assertion enums (Phase 9)."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
-class HttpMethod(str, Enum):
+class HttpMethod(StrEnum):
     get = "GET"
     post = "POST"
     put = "PUT"
@@ -15,14 +15,14 @@ class HttpMethod(str, Enum):
     delete = "DELETE"
 
 
-class AssertionType(str, Enum):
+class AssertionType(StrEnum):
     status = "status"
     json_field = "json_field"
     response_time = "response_time"
     header = "header"
 
 
-class ApiTestCaseStatus(str, Enum):
+class ApiTestCaseStatus(StrEnum):
     active = "active"
     archived = "archived"
 

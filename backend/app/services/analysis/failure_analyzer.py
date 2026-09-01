@@ -13,10 +13,10 @@ from sqlalchemy.orm import Session, selectinload
 from app.core.config import settings
 from app.core.exceptions import InvalidTransitionError, NotFoundError, ValidationFailedError
 from app.models import FailureAnalysis, TestRunCase
-from app.services.analysis.failure_context import build_failure_context
-from app.services.analysis.rule_classifier import rule_classify
 from app.services.ai.agents.failure_analyzer import analyze_with_llm
 from app.services.ai.providers import LLMProvider, get_provider
+from app.services.analysis.failure_context import build_failure_context
+from app.services.analysis.rule_classifier import rule_classify
 
 _RULE_REASON = (
     "定位器失效（BROKEN_LOCATOR）：脚本引用的定位器（data-testid/角色）在当前页面无法匹配，"

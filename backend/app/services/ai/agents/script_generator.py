@@ -10,7 +10,7 @@ import json
 from sqlalchemy.orm import Session
 
 from app.models import Requirement, TestCase
-from app.schemas.ai import SCHEMA_VERSION, ScriptStepItem
+from app.schemas.ai import ScriptStepItem
 from app.services.ai.agents.script_assembler import (
     build_script_repair_prompt,
     render_skeleton,

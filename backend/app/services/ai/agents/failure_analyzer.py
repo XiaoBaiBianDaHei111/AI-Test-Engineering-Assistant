@@ -11,7 +11,7 @@ import json
 from sqlalchemy.orm import Session
 
 from app.core.exceptions import AppError
-from app.schemas.ai import SCHEMA_VERSION, FailureAnalysisItem
+from app.schemas.ai import FailureAnalysisItem
 from app.services.ai.audit import record_audit
 from app.services.ai.prompts import render_prompt
 from app.services.ai.providers import LLMProvider, get_provider

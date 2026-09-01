@@ -7,9 +7,9 @@ import pytest
 
 from app.core.exceptions import ValidationFailedError
 from app.models import TestReport
+from app.services.ai.providers import ChatResult
 from app.services.assets import test_report_service
 from app.services.assets.test_run_service import create_run
-from app.services.ai.providers import ChatResult
 
 CONFIG = {"base_url": "http://localhost:8001", "qa_mode": "none", "browser": "chromium", "headless": True}
 

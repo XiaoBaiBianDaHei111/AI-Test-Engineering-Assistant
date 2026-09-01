@@ -4,7 +4,8 @@ import json
 
 import pytest
 
-from app.models import AIAuditLog, TestCase as _TestCase
+from app.models import AIAuditLog
+from app.models import TestCase as _TestCase
 from app.services.ai.agents.script_generator import generate_script
 from app.services.ai.providers import ChatResult
 

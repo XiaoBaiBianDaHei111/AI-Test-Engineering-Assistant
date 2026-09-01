@@ -1,11 +1,16 @@
 """GenerationRun lifecycle service (create / query / progress / finish)."""
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.core.exceptions import AppError, InvalidTransitionError, NotFoundError, ValidationFailedError
+from app.core.exceptions import (
+    AppError,
+    InvalidTransitionError,
+    NotFoundError,
+    ValidationFailedError,
+)
 from app.models import GenerationRun, Project, Requirement, TestPoint
 
 # pending -> running -> completed / partial / failed
@@ -21,7 +26,7 @@ _TERMINAL = {"completed", "partial", "failed"}
 
 
 def _utcnow() -> datetime:
-    return datetime.now(timezone.utc).replace(tzinfo=None)
+    return datetime.now(UTC).replace(tzinfo=None)
 
 
 def create_run(db: Session, project_id: int, total_items: int) -> GenerationRun:

@@ -1,14 +1,14 @@
 """TestRun / TestRunCase / TestStepResult request/response schemas."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field, computed_field
 
 from app.schemas.failure_analysis import FailureAnalysisRead
 
 
-class QaMode(str, Enum):
+class QaMode(StrEnum):
     none = "none"
     selector_change = "selector-change"
     logic_bug = "logic-bug"
@@ -16,7 +16,7 @@ class QaMode(str, Enum):
     auth_break = "auth-break"
 
 
-class BrowserType(str, Enum):
+class BrowserType(StrEnum):
     chromium = "chromium"
 
 

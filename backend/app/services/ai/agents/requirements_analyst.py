@@ -18,7 +18,7 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.core.exceptions import AppError, NotFoundError, ValidationFailedError
 from app.models import Project, Requirement
-from app.schemas.ai import SCHEMA_VERSION, RequirementItem
+from app.schemas.ai import RequirementItem
 from app.services.ai.audit import record_audit
 from app.services.ai.prompts import render_prompt
 from app.services.ai.providers import LLMProvider, get_provider

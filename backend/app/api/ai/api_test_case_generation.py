@@ -7,8 +7,8 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.exceptions import NotFoundError
 from app.schemas import ApiTestCaseRead
-from app.services.assets import api_test_case_service, project_service
 from app.services.ai.agents.api_test_case_generator import generate_api_test_cases
+from app.services.assets import api_test_case_service, project_service
 
 router = APIRouter()
 

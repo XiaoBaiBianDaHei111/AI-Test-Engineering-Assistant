@@ -39,8 +39,8 @@ from app.schemas.test_case import (
     TestCaseUpdate,
 )
 from app.schemas.test_case_review import (
-    ReviewVerdict,
     ReviewerType,
+    ReviewVerdict,
     TestCaseReviewCreate,
     TestCaseReviewRead,
 )

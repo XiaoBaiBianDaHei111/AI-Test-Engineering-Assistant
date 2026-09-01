@@ -3,7 +3,8 @@
 import pytest
 from pydantic import ValidationError
 
-from app.schemas.ai import SCHEMA_VERSION, TestCaseItem as _TestCaseItem
+from app.schemas.ai import SCHEMA_VERSION
+from app.schemas.ai import TestCaseItem as _TestCaseItem
 
 
 def _case(**overrides):

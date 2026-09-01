@@ -45,3 +45,6 @@ Thumbs.db
 .vscode/
 
 gate_check*.txt
+
+# --- CI diagnostic exports (local only) ---
+ci_logs/

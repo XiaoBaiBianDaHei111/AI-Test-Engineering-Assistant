@@ -7,7 +7,7 @@ caller persists with project_id/requirement_id injected (not trusted from the LL
 from sqlalchemy.orm import Session
 
 from app.core.exceptions import AppError
-from app.schemas.ai import SCHEMA_VERSION, ApiTestCaseItem
+from app.schemas.ai import ApiTestCaseItem
 from app.services.ai.audit import record_audit
 from app.services.ai.prompts import render_prompt
 from app.services.ai.providers import LLMProvider, get_provider

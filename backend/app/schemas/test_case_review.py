@@ -1,17 +1,17 @@
 """TestCaseReview request/response schemas."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
-class ReviewVerdict(str, Enum):
+class ReviewVerdict(StrEnum):
     approved = "approved"
     needs_work = "needs_work"
 
 
-class ReviewerType(str, Enum):
+class ReviewerType(StrEnum):
     ai = "ai"
     human = "human"
 

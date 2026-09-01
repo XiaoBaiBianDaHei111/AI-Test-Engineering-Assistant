@@ -8,7 +8,7 @@ shows a "服务模式可查看" placeholder when opened offline.
 
 import base64
 import html as _html
-from typing import Callable
+from collections.abc import Callable
 
 SCREENSHOT_EMBED_LIMIT = 200 * 1024  # 200 KB
 

@@ -8,7 +8,6 @@ from sqlalchemy.orm import Session, selectinload
 
 from app.core.config import settings
 from app.core.exceptions import NotFoundError, ValidationFailedError
-from app.core.logging import logger
 from app.models import (
     Evidence,
     FailureAnalysis,
@@ -16,14 +15,14 @@ from app.models import (
     TestReport,
     TestRun,
 )
-from app.services.analysis.report_html import render as render_html
-from app.services.analysis.report_markdown import render as render_markdown
-from app.services.analysis.report_stats import build_report_stats
 from app.services.ai.agents.quality_summarizer import (
     analyze_with_llm,
     derive_recommendation,
 )
 from app.services.ai.providers import LLMProvider, get_provider
+from app.services.analysis.report_html import render as render_html
+from app.services.analysis.report_markdown import render as render_markdown
+from app.services.analysis.report_stats import build_report_stats
 from app.services.assets import evidence_service
 
 

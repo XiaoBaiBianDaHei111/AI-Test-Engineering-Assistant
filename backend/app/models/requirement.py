@@ -1,10 +1,16 @@
 """Requirement — a structured requirement derived from (or manually entered for) a PRD."""
 
+from typing import TYPE_CHECKING
+
 from sqlalchemy import JSON, ForeignKey, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
 from app.models.base import TimestampMixin
+
+if TYPE_CHECKING:
+    from app.models.test_case import TestCase
+    from app.models.test_point import TestPoint
 
 # Requirement state machine (frozen in P000 section 12):
 #   parsed -> confirmed -> archived

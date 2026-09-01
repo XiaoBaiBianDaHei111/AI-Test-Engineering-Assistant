@@ -18,7 +18,7 @@ from app.schemas import (
     TestRunRead,
 )
 from app.services.assets import test_run_service
-from app.services.assets.test_run_service import run_batch, save_script
+from app.services.assets.test_run_service import run_batch
 
 router = APIRouter()
 

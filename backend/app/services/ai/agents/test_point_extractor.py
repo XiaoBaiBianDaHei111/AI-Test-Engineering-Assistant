@@ -10,9 +10,9 @@ import json
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.core.exceptions import AppError, ConflictError, NotFoundError
+from app.core.exceptions import AppError, ConflictError
 from app.models import TestPoint
-from app.schemas.ai import SCHEMA_VERSION, TestPointItem
+from app.schemas.ai import TestPointItem
 from app.services.ai.audit import record_audit
 from app.services.ai.prompts import render_prompt
 from app.services.ai.providers import LLMProvider, get_provider

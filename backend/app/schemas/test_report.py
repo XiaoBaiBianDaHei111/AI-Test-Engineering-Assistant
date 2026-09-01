@@ -1,12 +1,12 @@
 """TestReport / QualitySummary request/response schemas + enums (Phase 8)."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field
 
 
-class Recommendation(str, Enum):
+class Recommendation(StrEnum):
     go = "GO"
     conditional_go = "CONDITIONAL_GO"
     no_go = "NO_GO"

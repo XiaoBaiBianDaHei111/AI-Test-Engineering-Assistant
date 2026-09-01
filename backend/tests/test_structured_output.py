@@ -2,7 +2,8 @@
 
 import pytest
 
-from app.schemas.ai import SCHEMA_VERSION, RequirementItem, TestPointItem as _TestPointItem
+from app.schemas.ai import SCHEMA_VERSION, RequirementItem
+from app.schemas.ai import TestPointItem as _TestPointItem
 from app.services.ai.prompts import load_prompt
 from app.services.ai.providers import ChatResult
 from app.services.ai.structured import (

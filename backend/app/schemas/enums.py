@@ -1,26 +1,26 @@
 """Shared enums used across request/response schemas."""
 
-from enum import Enum
+from enum import StrEnum
 
 
-class RequirementStatus(str, Enum):
+class RequirementStatus(StrEnum):
     parsed = "parsed"
     confirmed = "confirmed"
     archived = "archived"
 
 
-class AssetSource(str, Enum):
+class AssetSource(StrEnum):
     ai = "ai"
     manual = "manual"
 
 
-class TestPointStatus(str, Enum):
+class TestPointStatus(StrEnum):
     extracted = "extracted"
     confirmed = "confirmed"
     archived = "archived"
 
 
-class TestPointTechnique(str, Enum):
+class TestPointTechnique(StrEnum):
     equivalence = "equivalence"
     boundary = "boundary"
     state_transition = "state_transition"
@@ -28,14 +28,14 @@ class TestPointTechnique(str, Enum):
     error_guessing = "error_guessing"
 
 
-class TestCasePriority(str, Enum):
+class TestCasePriority(StrEnum):
     P0 = "P0"
     P1 = "P1"
     P2 = "P2"
     P3 = "P3"
 
 
-class TestCaseType(str, Enum):
+class TestCaseType(StrEnum):
     smoke = "smoke"
     functional = "functional"
     boundary = "boundary"
@@ -45,7 +45,7 @@ class TestCaseType(str, Enum):
     compatibility = "compatibility"
 
 
-class TestCaseStatus(str, Enum):
+class TestCaseStatus(StrEnum):
     draft = "draft"
     pending_review = "pending_review"
     approved = "approved"

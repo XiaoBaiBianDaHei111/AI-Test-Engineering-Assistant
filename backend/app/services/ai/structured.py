@@ -10,8 +10,8 @@
 
 import json
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Callable
 
 from pydantic import BaseModel, ValidationError
 

@@ -11,7 +11,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
 from app.core.exceptions import AppError
-from app.models import Evidence, FailureAnalysis, TestCase as _TestCase, TestReport, TestRun, TraceParse
+from app.models import Evidence, FailureAnalysis, TestReport, TestRun, TraceParse
+from app.models import TestCase as _TestCase
 from app.services.assets import evidence_service, test_run_service
 from app.services.assets.test_run_service import (
     cancel_run,

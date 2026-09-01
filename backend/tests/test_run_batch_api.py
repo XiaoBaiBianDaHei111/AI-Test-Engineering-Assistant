@@ -1,10 +1,10 @@
 """run_batch API-branch integration tests (P9-006, AC-9-04/06/08/09)."""
 
 import json
-from sqlalchemy import select
 
 import httpx
 import pytest
+from sqlalchemy import select
 
 from app.execution.api_runner import ApiRunner
 from app.models import APITestCase, Evidence, FailureAnalysis, TestRun

@@ -1,6 +1,6 @@
 """Evidence / TraceParse — execution evidence entities (Phase 6)."""
 
-from sqlalchemy import JSON, ForeignKey, String, Text
+from sqlalchemy import JSON, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base

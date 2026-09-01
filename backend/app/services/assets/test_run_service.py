@@ -31,12 +31,12 @@ from app.models import (
     TestStepResult,
     TraceParse,
 )
+from app.services.ai.agents.script_generator import generate_script
+from app.services.ai.providers import get_provider
+from app.services.analysis.trace_parser import TraceParseError, parse_trace
 from app.services.assets import evidence_service
 from app.services.assets.test_case_review_service import assert_cases_executable
 from app.services.assets.test_case_service import transition_test_case
-from app.services.analysis.trace_parser import TraceParseError, parse_trace
-from app.services.ai.agents.script_generator import generate_script
-from app.services.ai.providers import get_provider
 
 # In-memory cancel flags (single-process personal project).
 _cancel_requests: set[int] = set()
@@ -386,7 +386,7 @@ def run_batch(
     try:
         run = get_run_or_404(db, run_id)
         _run_batch(db, run, driver or get_driver(), api_runner or ApiRunner())
-    except Exception as exc:  # noqa: BLE001 - safety net, run must reach terminal state
+    except Exception:  # noqa: BLE001 - safety net, run must reach terminal state
         logger.exception("run_batch crashed for run %s", run_id)
         if run is not None:
             try:
@@ -437,7 +437,8 @@ def _process_api_case(db: Session, run: TestRun, run_case: TestRunCase, api_runn
 
     base_url = run.config.get("base_url", "http://localhost:8001")
     outcome = api_runner.execute(api_case, base_url)
-    step_results = [_add_step_result(db, run_case, step_outcome) for step_outcome in outcome.steps]
+    for step_outcome in outcome.steps:
+        _add_step_result(db, run_case, step_outcome)
 
     status = "passed" if outcome.status == "passed" else "failed"
     _finish_case(db, run_case, status, duration_ms=outcome.duration_ms, error=outcome.error)

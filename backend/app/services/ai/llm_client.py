@@ -83,7 +83,7 @@ class LLMClient(LLMProvider):
                 # so this only fires for 401/400/403 etc.). Surface clearly, no retry.
                 status = exc.response.status_code
                 body = (exc.response.text or "")[:200]
-                raise LLMUnavailableError(f"LLM HTTP {status}: {body}")
+                raise LLMUnavailableError(f"LLM HTTP {status}: {body}") from exc
             except (httpx.TimeoutException, httpx.TransportError) as exc:
                 last_error = f"{type(exc).__name__}: {exc}"
                 self._backoff(attempt)

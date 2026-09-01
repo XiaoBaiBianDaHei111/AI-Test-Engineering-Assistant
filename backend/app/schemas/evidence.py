@@ -1,12 +1,12 @@
 """Evidence / TraceParse request/response schemas (Phase 6)."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict
 
 
-class EvidenceKind(str, Enum):
+class EvidenceKind(StrEnum):
     screenshot = "screenshot"
     trace = "trace"
     console = "console"

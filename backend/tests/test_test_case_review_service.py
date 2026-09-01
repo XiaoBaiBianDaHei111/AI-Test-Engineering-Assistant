@@ -2,7 +2,11 @@
 
 import pytest
 
-from app.core.exceptions import AppError, ConflictError, InvalidTransitionError, ValidationFailedError
+from app.core.exceptions import (
+    AppError,
+    ConflictError,
+    ValidationFailedError,
+)
 from app.services.assets import test_case_review_service as review_service
 
 

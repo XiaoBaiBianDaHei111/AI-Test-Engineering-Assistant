@@ -1,6 +1,6 @@
 """TestCase review endpoints (M1) + coverage view + Gate 3 executable list."""
 
-from fastapi import APIRouter, Depends, Response, status
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db

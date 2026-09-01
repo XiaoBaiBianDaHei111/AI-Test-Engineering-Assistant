@@ -1,10 +1,15 @@
 """TestPoint — a single thing-to-test derived from a requirement."""
 
+from typing import TYPE_CHECKING
+
 from sqlalchemy import ForeignKey, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
 from app.models.base import TimestampMixin
+
+if TYPE_CHECKING:
+    from app.models.test_case import TestCase
 
 # TestPoint state machine: extracted -> confirmed -> archived
 TEST_POINT_STATUSES = ("extracted", "confirmed", "archived")
